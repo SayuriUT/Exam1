@@ -1,0 +1,37 @@
+<!--
+  Generated template for the LaptopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style= "background-color: #407076">Laptop</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style= "background-color: #C7D6D5">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor = "let laptop of laptops" col-6>
+        <ion-card (click) = "verLaptop(laptop)">
+          <img *ngIf="laptop.ad.hasOwnProperty('thumbnail')"
+          src= "http://img.segundamano.mx/cover/{{laptop.ad.thumbnail.path}}">
+          <img *ngIf="!laptop.ad.hasOwnProperty('thumbnail')"
+          src= "../assets/imgs/logo.png">
+          <ion-card-content>
+            <h2 *ngIf = "laptop.ad.hasOwnProperty('subject')">
+              {{laptop.ad.subject}}
+            </h2>
+            <p>
+              {{laptop.ad.locations[0].locations[0].label}}, {{laptop.ad.locations[0].label}}
+            </p>
+            <h2 *ngIf = "laptop.ad.hasOwnProperty('list_price')">
+              {{laptop.ad.list_price.label}}
+            </h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
