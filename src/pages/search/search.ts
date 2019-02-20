@@ -30,8 +30,7 @@ export class SearchPage {
   getItems(ev: any){
     console.log(ev.target.value);
     this.items = this.mascotas.filter( mascota=> {
-      return mascota.ad.locations[0].locations[0].label.toLowerCase() ==
-      ev.target.value.toLowerCase()
+      return mascota.ad.subject.toLowerCase().includes(ev.target.value.toLowerCase())
     })
   }
 
